@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import FerryCard from './FerryCard'
+import ListGroup from 'react-bootstrap/ListGroup';
+import Card from 'react-bootstrap/Card';
 
 function Ferry() {
     /*
@@ -65,22 +64,21 @@ function Ferry() {
             <p>Error: {error}</p>
         ) : ("")}
         {data? (
-            <Container fluid>
-                 <p style={{'fontSize':'35px', 'fontWeight':'800'}}>{data.data.station_name} Ferry</p>
-                <Row>
+            <Card style={{'padding':'3%'}}>
+                 <Card.Title style={{'fontSize':'25px', 'fontWeight':'800'}}>{data.data.station_name} Ferry</Card.Title>
+
                     {/* North Bound Trains */}
-                    <Col>
+                    <ListGroup>
                         {data.data.ferry_times.map(items =>(
-                            <Row>
+                            <ListGroup.Item>
                                 <FerryCard
                                     time={items[1]}
                                     direction={items[0]}
                                 />
-                            </Row>
+                            </ListGroup.Item>
                         ))}
-                    </Col>
-                </Row>
-          </Container>
+                    </ListGroup>
+          </Card>
         ): ("")}
     </div>
   )

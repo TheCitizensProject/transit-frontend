@@ -23,12 +23,13 @@ function FerryCard({train, time, direction}) {
         <div style={{'display':'flex'}}>
             <div style={{'display':'flex', 'marginBottom':'20px'}}>
                 <div>
-                    <img src='./ferry_icon.png' width="60px"></img>
+                    <img src='./ferry_icon.png' width="50px"></img>
                 </div>
-                <div style={{
-                    'marginLeft': '20px',
-                    'fontSize': '20px', 'fontWeight': '600'
-                    }}>{direction}</div>
+                <div style={{'marginLeft': '20px',}}>
+                    <p style={{
+                        'fontSize': '20px', 'fontWeight': '600'
+                    }}>{direction}</p>
+                </div>
             </div>
             <div style={{'marginLeft': 'auto', 'marginRight':'0' }}>
                 <p style={{

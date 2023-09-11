@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import ListGroup from 'react-bootstrap/ListGroup';
 import TrainCard from './TrainCard';
+import Card from 'react-bootstrap/Card';
 
 function Trains() {
     /*
@@ -28,7 +27,7 @@ function Trains() {
     useEffect(() => {
         const fetchData = async () =>{
             try{
-                const endpoint = 'http://localhost:8000/api/get-station-time/B06'
+                const endpoint = 'http://localhost:8000/api/get-station-time-unified/B06'
                 const response = await fetch(endpoint)
                 if (!response.ok){
                     throw new Error()
@@ -74,35 +73,22 @@ function Trains() {
             <p>Error: {error}</p>
         ) : ("")}
         {data? (
-            <Container fluid>
-                 <p style={{'fontSize':'35px', 'fontWeight':'800'}}>{data.data.station_name} Station</p>
-                <Row>
-                    {/* North Bound Trains */}
-                    <Col>
-                        {data.data.north_bound_trains.map(items =>(
-                            <Row>
-                                <TrainCard
-                                    train={items[0]}
-                                    time={items[1]}
-                                    direction={data.data.north_bound_label}
-                                />
-                            </Row>
-                        ))}
-                    </Col>
-                    {/* South Bound Trains */}
-                    <Col>
-                        {data.data.south_bound_trains.map(items =>(
-                            <Row>
-                                <TrainCard
-                                    train={items[0]}
-                                    time={items[1]}
-                                    direction={data.data.south_bound_label}
-                                />
-                            </Row>
-                        ))}
-                    </Col>
-                </Row>
-          </Container>
+            <Card style={{'padding':'3%'}}>
+                 <Card.Title style={{'fontSize':'25px', 'fontWeight':'800'}}>{data.data.station_name} Station</Card.Title>
+                
+                <ListGroup>
+                    {data.data.both_directions.map(items =>(
+                        <ListGroup.Item>
+                            <TrainCard
+                                train={items[0]}
+                                time={items[1]}
+                                direction={items[2]}
+                            />
+                        </ListGroup.Item>
+                    ))}
+                </ListGroup>
+                
+          </Card>
         ): ("")}
     </div>
   )

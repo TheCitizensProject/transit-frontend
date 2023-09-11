@@ -18,24 +18,23 @@ function TrainCard({train, time, direction}) {
         |   |________|   |_____________|           |_________| |
         -------------------------------------------------------
     */
+   let imageSrc;
+
+   if (train==='F'){
+    imageSrc = './f-letter.png'
+   }
   return (
     <React.Fragment>
         <div style={{'display':'flex'}}>
             <div style={{'display':'flex'}}>
-                <div
-                    style={{
-                        "backgroundColor": "#ff6319",
-                        "color": 'white',
-                        "padding": "6px 0",
-                        "borderRadius": "50%", 'width':'50px', 'height':'50px',
-                        'textAlign': 'center', 'justifyContent':'center',
-                        'marginBottom': '5px'
-
-                    }}> <p style={{'fontSize':'25px', 'fontWeight':'800'}}>{train}</p></div>
-                <div style={{
-                    'marginLeft': '10px',
-                    'fontSize': '20px', 'fontWeight': '600'
-                    }}>{direction}</div>
+                <div>
+                    <img src={imageSrc} width="50px"/>
+                </div>
+                <div style={{'marginLeft': '20px',}}>
+                    <p style={{
+                        'fontSize': '20px', 'fontWeight': '600'
+                    }}>{direction}</p>
+                </div>
             </div>
             <div style={{'marginLeft': 'auto', 'marginRight':'0' }}>
                 <p style={{
