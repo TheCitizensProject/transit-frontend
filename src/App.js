@@ -8,13 +8,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function App() {
+  const serverEndpoint = "https://citizen-proj-mta-api-backend.onrender.com"
   return (
     <React.Fragment>
       <Container style={{'marginTop': '50px'}}>
         <Row>
-          <Col sm={12} md={12} lg={4}><Trains/></Col>
-          <Col sm={12} md={12} lg={4}><Ferry/></Col>
-          <Col sm={12} md={12} lg={4}><Tram/></Col>
+          <Col sm={12} md={12} lg={4}><Trains serverEndpoint={serverEndpoint}/></Col>
+          <Col sm={12} md={12} lg={4}><Ferry serverEndpoint={serverEndpoint}/></Col>
+          <Col sm={12} md={12} lg={4}><Tram serverEndpoint={serverEndpoint}/></Col>
         </Row>
       </Container>
     </React.Fragment>

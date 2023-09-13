@@ -27,19 +27,20 @@ function TrainCard({train, time, direction}) {
     <React.Fragment>
         <div style={{'display':'flex'}}>
             <div style={{'display':'flex'}}>
-                <div>
-                    <img src={imageSrc} width="50px"/>
+                <div style={{'marginTop': '4%'}}>
+                    <img src={imageSrc} width="60px"/>
                 </div>
                 <div style={{'marginLeft': '20px',}}>
                     <p style={{
-                        'fontSize': '20px', 'fontWeight': '600'
+                        'fontSize': '20px', 'fontWeight': '600', 'marginTop': '20%'
                     }}>{direction}</p>
                 </div>
             </div>
             <div style={{'marginLeft': 'auto', 'marginRight':'0' }}>
                 <p style={{
-                    'fontSize': '20px', 'fontWeight': '400'
-                    }}> {time} mins</p>
+                    'fontSize': '22px', 'fontWeight': '700', 'textAlign':'center', 'marginBottom':'0'
+                    }}> {time}</p>
+                <p>mins</p>
             </div>
         </div>
     </React.Fragment>

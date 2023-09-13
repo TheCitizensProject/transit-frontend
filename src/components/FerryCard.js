@@ -21,20 +21,21 @@ function FerryCard({train, time, direction}) {
   return (
     <React.Fragment>
         <div style={{'display':'flex'}}>
-            <div style={{'display':'flex', 'marginBottom':'20px'}}>
+            <div style={{'display':'flex'}}>
                 <div>
                     <img src='./ferry_icon.png' width="50px"></img>
                 </div>
                 <div style={{'marginLeft': '20px',}}>
                     <p style={{
-                        'fontSize': '20px', 'fontWeight': '600'
+                        'fontSize': '20px', 'fontWeight': '600', 'marginTop': '5%'
                     }}>{direction}</p>
                 </div>
             </div>
             <div style={{'marginLeft': 'auto', 'marginRight':'0' }}>
                 <p style={{
-                    'fontSize': '20px', 'fontWeight': '400'
+                    'fontSize': '22px', 'fontWeight': '700', 'textAlign':'center', 'marginBottom':'0'
                     }}> {time}</p>
+                <p>mins</p>
             </div>
         </div>
     </React.Fragment>

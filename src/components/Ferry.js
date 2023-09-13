@@ -3,7 +3,7 @@ import FerryCard from './FerryCard'
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 
-function Ferry() {
+function Ferry({serverEndpoint}) {
     /*
     The Ferry Module.
 
@@ -18,7 +18,7 @@ function Ferry() {
     useEffect(() => {
         const fetchData = async () =>{
             try{
-                const endpoint = 'http://localhost:8000/api/get-ferry-time'
+                const endpoint = serverEndpoint + '/api/get-ferry-time'
                 const response = await fetch(endpoint)
                 if (!response.ok){
                     throw new Error()
@@ -43,7 +43,7 @@ function Ferry() {
             console.log("after")
             console.log(pageLoadCount)
             const second = 60
-            const min = (30)*second;
+            const min = (1)*second;
             const interval = min*1000; //1000 is the constant
 
             const intervalId = setInterval(fetchData, interval);

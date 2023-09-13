@@ -3,7 +3,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import TrainCard from './TrainCard';
 import Card from 'react-bootstrap/Card';
 
-function Trains() {
+function Trains({serverEndpoint}) {
     /*
     The Train Module.
 
@@ -27,7 +27,7 @@ function Trains() {
     useEffect(() => {
         const fetchData = async () =>{
             try{
-                const endpoint = 'http://localhost:8000/api/get-station-time-unified/B06'
+                const endpoint = serverEndpoint + '/api/get-station-time-unified/B06'
                 const response = await fetch(endpoint)
                 if (!response.ok){
                     throw new Error()

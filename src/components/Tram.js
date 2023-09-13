@@ -3,7 +3,7 @@ import TramCard from './TramCard';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 
-function Tram() {
+function Tram({serverEndpoint}) {
     /*
     The Train Module.
 
@@ -19,7 +19,7 @@ function Tram() {
     useEffect(() => {
         const fetchData = async () =>{
             try{
-                const endpoint = 'http://localhost:8000/api/get-tram-time'
+                const endpoint = serverEndpoint + '/api/get-tram-time'
                 const response = await fetch(endpoint)
                 if (!response.ok){
                     throw new Error()
