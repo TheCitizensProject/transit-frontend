@@ -33,31 +33,22 @@ function Tram({serverEndpoint}) {
                 setData(null)
             }
         }
-        //fetchData()
+        
+        const min = 60
+        const refreshWindow = (1/2)*min;
+        const interval = refreshWindow*1000; //1000 is the constant
+        const intervalId = setInterval(fetchData, interval);
 
-        if(pageLoadCount == 0){
-            fetchData();
-            console.log(pageLoadCount)
-            pageLoadCount++;
-        }
-        else{
-            console.log("after")
-            console.log(pageLoadCount)
-            const second = 60
-            const min = (1/2)*second;
-            const interval = min*1000; //1000 is the constant
+        fetchData()
 
-            const intervalId = setInterval(fetchData, interval);
-            //Cleanup to clear interval when component unmounts
-            return () => {
-                clearInterval(intervalId)
-            };
-
-        }
+        // Cleanup to clear interval when component unmounts
+        return () => {
+            clearInterval(intervalId)
+        };
 
 
 
-      }, [pageLoadCount]);
+      }, []);
 
   return (
     <div>

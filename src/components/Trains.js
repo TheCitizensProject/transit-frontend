@@ -41,31 +41,22 @@ function Trains({serverEndpoint}) {
                 setData(null)
             }
         }
-        //fetchData()
 
-        if(pageLoadCount == 0){
-            fetchData();
-            console.log(pageLoadCount)
-            pageLoadCount++;
-        }
-        else{
-            console.log("after")
-            console.log(pageLoadCount)
-            const second = 60
-            const min = (1/2)*second;
-            const interval = min*1000; //1000 is the constant
+        const min = 60
+        const refreshWindow = (1/2)*min;
+        const interval = refreshWindow*1000; //1000 is the constant
+        const intervalId = setInterval(fetchData, interval);
 
-            const intervalId = setInterval(fetchData, interval);
-            //Cleanup to clear interval when component unmounts
-            return () => {
-                clearInterval(intervalId)
-            };
+        fetchData()
 
-        }
+        // Cleanup to clear interval when component unmounts
+        return () => {
+            clearInterval(intervalId)
+        };
 
 
 
-      }, [pageLoadCount]);
+      }, []);
 
   return (
     <div>
