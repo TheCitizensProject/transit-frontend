@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function App() {
-  const serverEndpoint = "http://localhost:8000"
+  const serverEndpoint = process.env.REACT_APP_SERVER_ENDPOINT
   return (
     <React.Fragment>
       <Container style={{'marginTop': '50px'}}>
