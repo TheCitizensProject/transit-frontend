@@ -19,7 +19,7 @@ function Ferry({serverEndpoint}) {
         const fetchData = async () =>{
             try{
                 const endpoint = serverEndpoint + '/api/get-ferry-time'
-                const response = await fetch(endpoint)
+                const response = await fetch('https://x776xfsi68.execute-api.us-east-1.amazonaws.com/api/get-ferry-time')
                 if (!response.ok){
                     throw new Error()
                 }
