@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ReactNode } from "react";
 import { TbTriangleFilled } from "react-icons/tb";
 
@@ -77,7 +78,7 @@ export function Activity({
   return (
     <div
       data-testid="activityComponent"
-      className="flex items-start my-4 border-black border-2 p-4
+      className="flex items-start my-4 border-stone-400 border-2 p-4
        border-t-transparent border-r-transparent border-l-transparent"
     >
       <div className="mr-2">{icon}</div>
@@ -118,8 +119,8 @@ export function AppQR() {
         </div>
       </div>
 
-      <div data-testid="qR" className="w-1/2">
-        QR Code
+      <div data-testid="qR" className="w-1/2 relative">
+        <Image alt="get the app" src={"/qrcode.jpeg"} fill />
       </div>
     </div>
   );

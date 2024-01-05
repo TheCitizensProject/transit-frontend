@@ -1,4 +1,4 @@
-import { Activity } from "@/app/page";
+import { Activity } from "@/app/(pages)/today/page";
 import "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import { TbTriangleFilled } from "react-icons/tb";

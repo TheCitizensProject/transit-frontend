@@ -1,5 +1,5 @@
 import Header from "@/app/component/Header";
-import { IslandActivities } from "@/app/page";
+import { IslandActivities } from "@/app/(pages)/today/page";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 

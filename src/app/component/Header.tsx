@@ -2,21 +2,11 @@
 import React from "react";
 import HeaderInfo from "./HeaderInfo";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 export default function Header() {
   return (
     <div data-testid="headerComponent">
-      <div className="flex">
-        <Image
-          data-testid="logo"
-          src={"/tcp-icon.png"}
-          width={30}
-          height={30}
-          alt="The Citicen Project logo"
-        />
-        <div data-testid="projectTitle" className="text-2xl font-bold ml-2">
-          ROOSEVELT ISLAND
-        </div>
-      </div>
+      <ProjectTitle />
       <HeaderInfo />
       {/* <div className="flex items-center justify-between px-4 my-4 py-2 gap-4 border-b">
         <div className="flex flex-col items-center justify-center cursor-pointer">
@@ -36,6 +26,33 @@ export default function Header() {
           <span className="font-semibold">Feedback</span>
         </div>
       </div> */}
+    </div>
+  );
+}
+
+export function ProjectTitle() {
+  const router = useRouter();
+  return (
+    <div className="flex mx-4 mt-4">
+      <Image
+        data-testid="logo"
+        src={"/tcp-icon.png"}
+        width={30}
+        height={30}
+        alt="The Citicen Project logo"
+        onClick={() => {
+          router.push("/");
+        }}
+      />
+      <div
+        onClick={() => {
+          router.push("/");
+        }}
+        data-testid="projectTitle"
+        className="text-2xl font-bold ml-2"
+      >
+        ROOSEVELT ISLAND
+      </div>
     </div>
   );
 }

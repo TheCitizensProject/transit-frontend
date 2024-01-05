@@ -8,7 +8,7 @@ const HeaderInfo = () => {
     <div
       data-testid="headerInfo"
       className="flex justify-between my-2 py-3
-      border-b"
+      border-b border-stone-400"
     >
       <Alert />
       <div

@@ -1,4 +1,4 @@
-import { AppQR } from "@/app/page";
+import { AppQR } from "@/app/(pages)/today/page";
 import "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 
