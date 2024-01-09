@@ -1,14 +1,13 @@
 "use client";
+
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function HomeImage() {
   const router = useRouter();
+
   return (
-    <div
-      data-testid="homeImageComponent"
-      className="home-screen relative w-full"
-    >
+    <div data-testid="homeImageComponent" className="home-screen relative w-full">
       <Image
         onClick={() => {
           router.push("/today");

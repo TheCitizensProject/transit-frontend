@@ -2,15 +2,16 @@ import Image from "next/image";
 import React, { ReactNode } from "react";
 import { FiThumbsDown, FiThumbsUp } from "react-icons/fi";
 import { MdFoodBank, MdOutlineFactory } from "react-icons/md";
+import { EventType } from "../events/page";
+import EventComponent from "../events/component/EventComponent";
+import { ServiceComponent } from "./components/ServiceComponent";
 
-import { IoIosArrowForward } from "react-icons/io";
-import { EventComponent, EventType } from "../events/page";
-
-type ServiceType = {
+export type ServiceType = {
   icon: ReactNode;
   title: string;
 };
-const page = () => {
+
+const Page = () => {
   const events: EventType[] = [
     {
       id: 1,
@@ -44,9 +45,7 @@ const page = () => {
   return (
     <div>
       <h1 className="text-xl font-bold mx-4">Organization A</h1>
-      <div className="bg-stone-200 py-2 px-4 text-xl mt-4">
-        Visitor Feedback
-      </div>
+      <div className="bg-stone-200 py-2 px-4 text-xl mt-4">Visitor Feedback</div>
       <div className="flex m-4">
         <div className="flex items-center mr-4">
           <FiThumbsUp className="w-8 h-8" />
@@ -61,8 +60,8 @@ const page = () => {
         <Image src={"/feedback.png"} alt="feedback" fill />
       </div>
       <div className="bg-stone-200 py-2 px-4 text-xl mt-4">Your Services</div>
-      {services.map((serv) => (
-        <ServiceComponent key={serv.title} service={serv} />
+      {services.map((service) => (
+        <ServiceComponent key={service.title} service={service} />
       ))}
       <div className="bg-stone-200 py-2 px-4 text-xl mt-4">Your Events</div>
       {events.map((event) => (
@@ -72,20 +71,4 @@ const page = () => {
   );
 };
 
-export default page;
-
-export function ServiceComponent({ service }: { service: ServiceType }) {
-  return (
-    <div
-      className="p-4 flex justify-between items-center
-    border-b border-stone-400  py-8"
-    >
-      <div className="flex items-center">
-        {service.icon}
-
-        <h1 className="font-bold text-xl ml-4">{service.title}</h1>
-      </div>
-      <IoIosArrowForward className="w-8 h-8" />
-    </div>
-  );
-}
+export default Page;

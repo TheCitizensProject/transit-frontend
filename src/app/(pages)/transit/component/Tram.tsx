@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import TransitCard from "./TransitCard";
 
@@ -18,9 +19,7 @@ function Tram() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://x776xfsi68.execute-api.us-east-1.amazonaws.com/api/get-tram-time"
-        );
+        const response = await fetch("https://x776xfsi68.execute-api.us-east-1.amazonaws.com/api/get-tram-time");
         if (!response.ok) {
           throw new Error();
         }
@@ -50,10 +49,10 @@ function Tram() {
     <div>
       {error ? <p>Error: {error}</p> : ""}
       {data
-        ? data.data.tram_times.map((items: any) => (
-            <TransitCard time={items[1]} direction={items[0]} train="tram" />
+        ? data.data.tram_times.map((items: any, index: number) => (
+            <TransitCard key={index} time={items[1]} direction={items[0]} train="tram" />
           ))
-        : ""}
+        : null}
     </div>
   );
 }

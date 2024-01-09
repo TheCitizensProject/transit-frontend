@@ -89,7 +89,7 @@ const services: ServiceType[] = [
   },
 ];
 
-const page = () => {
+const Page = () => {
   return (
     <div>
       <SearchBox />
@@ -102,7 +102,7 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
 
 function ServiceComponent({ service }: { service: ServiceType }) {
   return (
@@ -111,13 +111,7 @@ function ServiceComponent({ service }: { service: ServiceType }) {
       <div className="flex flex-wrap">
         {service.services.map((serv) => (
           <div className="flex items-center mb-4 w-1/2 pr-1" key={serv.label}>
-            <Image
-              alt={serv.label}
-              src={serv.img}
-              width={50}
-              height={50}
-              className="rounded-full mr-4"
-            />
+            <Image alt={serv.label} src={serv.img} width={50} height={50} className="rounded-full mr-4" />
             <span>{serv.label}</span>
           </div>
         ))}

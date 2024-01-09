@@ -1,8 +1,10 @@
 "use client";
+
 import React from "react";
 import HeaderInfo from "./HeaderInfo";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
 export default function Header() {
   return (
     <div data-testid="headerComponent">

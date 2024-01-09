@@ -26,6 +26,6 @@
     rgb(var(--background-start-rgb));
 } */
 
-.home-screen{
+.home-screen {
   height: calc(100vh - 50px);
 }

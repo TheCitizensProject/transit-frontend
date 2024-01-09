@@ -26,10 +26,7 @@ function TransitCard({ train, time, direction }: any) {
 
   return (
     <React.Fragment>
-      <div
-        className="flex items-center justify-between my-4 pb-4
-      border-b border-stone-400"
-      >
+      <div className="flex items-center justify-between my-4 pb-4 border-b border-stone-400">
         <div className="flex items-center">
           <div>
             <Image src={imageSrc} width={50} height={50} alt={direction} />

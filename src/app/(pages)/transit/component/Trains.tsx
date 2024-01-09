@@ -59,14 +59,10 @@ function Trains() {
     <div>
       {error ? <p>Error: {error}</p> : ""}
       {data
-        ? data.data.both_directions.map((items: any) => (
-            <TransitCard
-              train={items[0]}
-              time={items[1]}
-              direction={items[2]}
-            />
+        ? data.data.both_directions.map((items: any, index: number) => (
+            <TransitCard key={index} train={items[0]} time={items[1]} direction={items[2]} />
           ))
-        : ""}
+        : null}
     </div>
   );
 }

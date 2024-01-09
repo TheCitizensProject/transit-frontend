@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import TransitCard from "./TransitCard";
 
@@ -15,9 +16,7 @@ function Ferry() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://x776xfsi68.execute-api.us-east-1.amazonaws.com/api/get-ferry-time"
-        );
+        const response = await fetch("https://x776xfsi68.execute-api.us-east-1.amazonaws.com/api/get-ferry-time");
         if (!response.ok) {
           throw new Error();
         }
@@ -47,10 +46,10 @@ function Ferry() {
     <div>
       {error ? <p>Error: {error}</p> : ""}
       {data
-        ? data.data.ferry_times.map((items: any) => (
-            <TransitCard time={items[3]} direction={items[1]} train="ferry" />
+        ? data.data.ferry_times.map((items: any, index: number) => (
+            <TransitCard key={index} time={items[3]} direction={items[1]} train="ferry" />
           ))
-        : ""}
+        : null}
     </div>
   );
 }
